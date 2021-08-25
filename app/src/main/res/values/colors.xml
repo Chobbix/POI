@@ -7,4 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="fondo_cel">#202732</color>
+    <color name="botones">#7EAEDC</color>
+    <color name="edit_seleccion">#FFBB86FC</color>
+    <color name="edit_sin_seleccion">#787878</color>
 </resources>
