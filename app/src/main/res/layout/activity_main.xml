@@ -8,7 +8,7 @@
     android:background="@color/fondo_cel">
 
     <EditText
-        android:id="@+id/edit_Email"
+        android:id="@+id/edit_IniEmail"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
@@ -19,13 +19,13 @@
         android:ems="10"
         android:hint=" Correo Electronico"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/edit_Password"
+        app:layout_constraintBottom_toTopOf="@+id/edit_IniPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/edit_Password"
+        android:id="@+id/edit_IniPassword"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
