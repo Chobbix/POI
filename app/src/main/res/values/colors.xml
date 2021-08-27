@@ -12,4 +12,6 @@
     <color name="botones">#7EAEDC</color>
     <color name="edit_seleccion">#FFBB86FC</color>
     <color name="edit_sin_seleccion">#787878</color>
+    <color name="msg_recibido">#7EAEDC</color>
+    <color name="msg_enviado">#7EAEDC</color>
 </resources>
