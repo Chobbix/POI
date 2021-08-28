@@ -3,17 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/drawable/custom_input_button.xml" value="0.2703125" />
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/drawable/custom_input_button_border.xml" value="0.2703125" />
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/drawable/custom_input_text.xml" value="0.2703125" />
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/drawable/custom_msgbox.xml" value="0.2703125" />
+        <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/drawable/ic_baseline_send_24.xml" value="0.2703125" />
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/drawable/ic_email.xml" value="0.2703125" />
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/drawable/ic_lock.xml" value="0.2703125" />
-        <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/activity_chat.xml" value="0.4" />
-        <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/activity_registro.xml" value="0.264" />
+        <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/activity_chat.xml" value="0.5147679324894515" />
+        <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/activity_registro.xml" value="0.4" />
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/iniciar_sesion.xml" value="0.4" />
+        <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/mensajes_recibidos_chat.xml" value="0.536" />
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/registro.xml" value="0.264" />
       </map>
     </option>

@@ -5,6 +5,7 @@
         <shape android:shape="rectangle">
             <corners android:radius="10dp"/>
             <stroke android:color="@color/edit_seleccion" android:width="1dp"/>
+            <padding android:left="5dp"/>
         </shape>
     </item>
 
@@ -12,6 +13,7 @@
         <shape android:shape="rectangle">
             <corners android:radius="10dp"/>
             <stroke android:color="@color/edit_sin_seleccion" android:width="1dp"/>
+            <padding android:left="5dp"/>
         </shape>
     </item>
 
