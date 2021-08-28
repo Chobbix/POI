@@ -35,9 +35,10 @@
         app:layout_constraintStart_toEndOf="@+id/edit_EnviarMsg" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_MsgRecibidos"
+        android:id="@+id/rvMsgRecibidos"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@+id/edit_EnviarMsg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         btnInicioSesion.setOnClickListener {
             val chatIntent = Intent(this, ActivityChat::class.java)
+
             startActivity(chatIntent)
         }
 
