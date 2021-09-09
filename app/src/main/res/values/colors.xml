@@ -10,6 +10,7 @@
     <color name="morado_chido">#FFBB86FC</color>
 
     <color name="fondo_cel">#202732</color>
+    <color name="barra_superior">#7e8bdc</color>
     <color name="botones">#7EAEDC</color>
     <color name="edit_seleccion">#7EAEDC</color>
     <color name="edit_sin_seleccion">#787878</color>

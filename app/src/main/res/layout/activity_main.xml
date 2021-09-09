@@ -77,26 +77,13 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="150dp"
+        android:layout_width="250dp"
         android:layout_height="150dp"
         android:layout_marginBottom="48dp"
         app:layout_constraintBottom_toTopOf="@+id/edit_IniEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@mipmap/bobesponja"
-        tools:srcCompat="@mipmap/bobesponja" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="CUBBI"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:textColor="@color/botones"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        tools:srcCompat="@mipmap/logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
