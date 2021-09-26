@@ -1,38 +1,45 @@
 package com.example.poi.adaptadores
 
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
+import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.poi.R
+import com.example.poi.modelos.Mensaje
+import java.text.SimpleDateFormat
+import java.util.*
 
-class ChatAdaptador: RecyclerView.Adapter<ChatAdaptador.ChatViewHolder>() {
+class ChatAdaptador(private val messageList: List<Mensaje>):
+    RecyclerView.Adapter<ChatAdaptador.ViewHolder>() {
 
-    class ChatViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder (
+        LayoutInflater.from(parent.context).inflate(R.layout.mensajes_recibidos_chat, parent, false)
+    )
 
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(messageList[position])
     }
 
-    override fun getItemCount(): Int {
-        return 10
-    }
+    override fun getItemCount(): Int = messageList.size
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatViewHolder {
-        val miView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.mensajes_recibidos_chat, parent, false)
+    class ViewHolder(private val itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bind(message: Mensaje) {
 
-        return ChatViewHolder(miView)
-    }
+            itemView.findViewById<TextView>(R.id.tv_NombreMsg).text = message.name
+            itemView.findViewById<TextView>(R.id.tv_TxtMsg).text = message.content
+            val tvDate = itemView.findViewById<TextView>(R.id.tv_HoraMsg)
+            val date = message.date as Long
+            tvDate.text = SimpleDateFormat("dd/MM/yyyy - HH:mm:ss", Locale("es", "MX")).format(date)
 
-    override fun onBindViewHolder(holder: ChatViewHolder, position: Int) {
-        val tvNombre = holder.itemView.findViewById<TextView>(R.id.tv_NombreMsg)
-        val tvMensaje = holder.itemView.findViewById<TextView>(R.id.tv_TxtMsg)
-        val tvHora = holder.itemView.findViewById<TextView>(R.id.tv_HoraMsg)
+            val messageContainer = itemView.findViewById<LinearLayout>(R.id.message_container)
+            val params = messageContainer.layoutParams
 
-        tvNombre.text = when (position) {
-            0 -> "A"
-            else -> "ZZZZ"
+            val newParams = FrameLayout.LayoutParams(params.width, params.height, Gravity.START)
+            messageContainer.layoutParams = newParams
         }
     }
 }

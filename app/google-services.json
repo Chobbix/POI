@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "512418271339",
+    "project_id": "poi-database-8ab1d",
+    "storage_bucket": "poi-database-8ab1d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:512418271339:android:51b3d2cbfb833ed4cba12e",
+        "android_client_info": {
+          "package_name": "com.example.poi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "512418271339-bff2kh6n55a8chfhef98aga6fhvj7ln0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBt4w5XEHoChWAJkdl9skVSojbUuXxpviI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "512418271339-bff2kh6n55a8chfhef98aga6fhvj7ln0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
