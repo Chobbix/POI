@@ -1,36 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="8dp"
-    android:layout_marginTop="16dp"
-    android:background="@drawable/custom_msgbox"
-    android:orientation="vertical"
-    android:padding="12dp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
+    android:layout_margin="16dp">
 
-    <TextView
-        android:id="@+id/tv_NombreMsg"
+    <LinearLayout
+        android:id="@+id/message_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Javier:" />
+        android:background="@drawable/custom_msgbox"
+        android:orientation="vertical"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/tv_TxtMsg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        tools:text="Hola, como has estado? Todo bien?" />
+        <TextView
+            android:id="@+id/tv_NombreMsg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Javier:" />
 
-    <TextView
-        android:id="@+id/tv_HoraMsg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginTop="8dp"
-        tools:text="04:52pm" />
-</LinearLayout>
+        <TextView
+            android:id="@+id/tv_TxtMsg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            tools:text="Hola, como has estado? Todo bien?" />
+
+        <TextView
+            android:id="@+id/tv_HoraMsg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="8dp"
+            tools:text="04:52pm" />
+    </LinearLayout>
+</FrameLayout>
