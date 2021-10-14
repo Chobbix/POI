@@ -10,6 +10,7 @@ import android.widget.EditText
 import androidx.recyclerview.widget.RecyclerView
 import com.example.poi.adaptadores.ChatAdaptador
 import com.example.poi.modelos.Mensaje
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
 class ActivityChat : AppCompatActivity() {
@@ -19,7 +20,7 @@ class ActivityChat : AppCompatActivity() {
     private lateinit var rvChats: RecyclerView
     private lateinit var username: String
     private val database = FirebaseDatabase.getInstance()
-    private val chatRef = database.getReference("chats")
+    private val authen = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,12 +31,14 @@ class ActivityChat : AppCompatActivity() {
         chatAdapter = ChatAdaptador(messageList)
         rvChats.adapter = chatAdapter
 
-        username = "Juan"
+        username = intent.getStringExtra("username") ?: "Sin nombre"
 
         findViewById<Button>(R.id.btn_Enviar).setOnClickListener {
             val message = findViewById<EditText>(R.id.edit_EnviarMsg).text.toString()
             if (message.isNotEmpty()) {
-                val msg = Mensaje("", message, username, ServerValue.TIMESTAMP)
+                val fromId = authen.uid ?: ""
+                val toId = "WDVqLyeGw9Vn290xeHcj5PkWTnb2"
+                val msg = Mensaje("", message, username, ServerValue.TIMESTAMP, fromId, toId)
                 sendMessage(msg)
             }
             val editMsg = findViewById<EditText>(R.id.edit_EnviarMsg)
@@ -45,20 +48,27 @@ class ActivityChat : AppCompatActivity() {
     }
 
     private fun sendMessage(message: Mensaje) {
-        val firebaseMsg = chatRef.push()
-        message.id = firebaseMsg.key ?: ""
+        val reference = database.getReference("/chat-user-to-user/${message.fromid}/${message.toid}").push()
+        val toReference = database.getReference("/chat-user-to-user/${message.toid}/${message.fromid}").push()
 
-        firebaseMsg.setValue(message)
+        message.id = reference.key ?: ""
+
+        reference.setValue(message)
+        toReference.setValue(message)
     }
 
     private fun readMessage() {
-        chatRef.addValueEventListener(object : ValueEventListener {
+        val fromId = authen.uid ?: ""
+        val toId = "WDVqLyeGw9Vn290xeHcj5PkWTnb2"
+        database.getReference("/chat-user-to-user/$fromId/$toId").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 messageList.clear()
 
                 for(snap in snapshot.children) {
                     val currentMessage: Mensaje = snap.getValue(Mensaje::class.java) as Mensaje
-                    messageList.add(currentMessage)
+                    if(currentMessage.fromid == authen.uid || currentMessage.toid == authen.uid) {
+                        messageList.add(currentMessage)
+                    }
                 }
 
                 if(messageList.size > 0) {

@@ -4,5 +4,7 @@ data class Mensaje(
     var id: String= "",
     var content: String = "",
     var name: String = "",
-    val date: Any? = null
+    val date: Any? = null,
+    val fromid: String= "",
+    val toid: String= ""
 )

@@ -37,13 +37,14 @@ class MainActivity : AppCompatActivity() {
 
             authen.signInWithEmailAndPassword(txtEmail, txtPass)
                 .addOnCompleteListener {
-                    Log.d("Main", "Usuario encontrado")
+                    Log.d("Main", "Usuario encontrado ${it.result}")
                 }
                 .addOnFailureListener {
                     Log.d("Main", "No se pudo encontrar el usuario: ${it.message}")
                 }
 
-            val chatIntent = Intent(this, ActivityUserChats::class.java)
+            val chatIntent = Intent(this, ActivityChat::class.java)
+            chatIntent.putExtra("username", txtEmail)
             startActivity(chatIntent)
         }
 
