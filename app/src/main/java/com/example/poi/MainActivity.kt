@@ -43,7 +43,8 @@ class MainActivity : AppCompatActivity() {
                     Log.d("Main", "No se pudo encontrar el usuario: ${it.message}")
                 }
 
-            val chatIntent = Intent(this, ActivityChat::class.java)
+            //val chatIntent = Intent(this, ActivityChat::class.java)
+            val chatIntent = Intent(this, ActivityChatGrupal::class.java)
             chatIntent.putExtra("username", txtEmail)
             startActivity(chatIntent)
         }

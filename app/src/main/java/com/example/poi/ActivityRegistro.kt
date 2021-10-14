@@ -38,7 +38,8 @@ class ActivityRegistro : AppCompatActivity() {
             crearUsuarioAuthentication(newUsuario.email, newUsuario.contrasenia)
             crearUsuarioDatabase(newUsuario)
 
-            val chatIntent = Intent(this, ActivityChat::class.java)
+            //val chatIntent = Intent(this, ActivityChat::class.java)
+            val chatIntent = Intent(this, ActivityChatGrupal::class.java)
             startActivity(chatIntent)
         }
     }
