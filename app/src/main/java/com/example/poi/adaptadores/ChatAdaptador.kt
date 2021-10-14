@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.poi.R
 import com.example.poi.modelos.Mensaje
+import com.google.firebase.auth.FirebaseAuth
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -38,7 +39,11 @@ class ChatAdaptador(private val messageList: List<Mensaje>):
             val messageContainer = itemView.findViewById<LinearLayout>(R.id.message_container)
             val params = messageContainer.layoutParams
 
-            val newParams = FrameLayout.LayoutParams(params.width, params.height, Gravity.START)
+            var newParams = FrameLayout.LayoutParams(params.width, params.height, Gravity.START)
+
+            if (FirebaseAuth.getInstance().uid == message.fromid)
+                newParams = FrameLayout.LayoutParams(params.width, params.height, Gravity.END)
+
             messageContainer.layoutParams = newParams
         }
     }
