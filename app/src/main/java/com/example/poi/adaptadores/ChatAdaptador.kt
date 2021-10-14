@@ -30,7 +30,7 @@ class ChatAdaptador(private val messageList: List<Mensaje>):
         fun bind(message: Mensaje) {
 
             itemView.findViewById<TextView>(R.id.tv_NombreMsg).text = message.name
-            itemView.findViewById<TextView>(R.id.tv_TxtMsg).text = message.content
+            itemView.findViewById<TextView>(R.id.tv_Username).text = message.content
             val tvDate = itemView.findViewById<TextView>(R.id.tv_HoraMsg)
             val date = message.date as Long
             tvDate.text = SimpleDateFormat("dd/MM/yyyy - HH:mm:ss", Locale("es", "MX")).format(date)

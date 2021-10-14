@@ -14,16 +14,28 @@
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/drawable/ic_enviar.xml" value="0.2703125" />
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/drawable/ic_lock.xml" value="0.2703125" />
-        <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/activity_chat.xml" value="0.4" />
+        <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/activity_chat.xml" value="0.38284839203675347" />
+        <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/activity_lista_mensajes.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/activity_muro.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/activity_nuevo_mensaje.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/activity_registro.xml" value="0.4" />
+        <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/diseno_de_grupos.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/diseno_de_tarea.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/fragment.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/fragmento_a.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/fragmento_b.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/fragmento_c.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/fragmento_chat.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/fragmento_grupo.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/iniciar_sesion.xml" value="0.4" />
+        <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/lista_usuario.xml" value="0.4" />
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/mensajes_recibidos_chat.xml" value="0.536" />
+        <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/pagina_de_tarea.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/registro.xml" value="0.264" />
+        <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/tablero_de_grupos.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/tablero_de_tareas.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/usuario_mensaje.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>

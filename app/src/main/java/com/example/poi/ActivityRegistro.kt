@@ -3,15 +3,17 @@ package com.example.poi
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import com.example.poi.modelos.Usuario
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
 class ActivityRegistro : AppCompatActivity() {
 
     private val database = FirebaseDatabase.getInstance()
-    private val userRef = database.getReference("usuarios")
+    private val authen = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,17 +34,30 @@ class ActivityRegistro : AppCompatActivity() {
             val txtContra = editContra.text.toString()
 
             val newUsuario = Usuario("", txtNombre, txtUsuario, txtTel, txtEmail, txtContra)
-            crearUsuario(newUsuario)
+
+            crearUsuarioAuthentication(newUsuario.email, newUsuario.contrasenia)
+            crearUsuarioDatabase(newUsuario)
 
             val chatIntent = Intent(this, ActivityChat::class.java)
             startActivity(chatIntent)
         }
     }
 
-    private fun crearUsuario(user: Usuario){
-        val firebaseMsg = userRef.push()
-        user.id = firebaseMsg.key ?: ""
+    private fun crearUsuarioDatabase(user: Usuario){
+        val uid = authen.uid ?: ""
+        val userRef = database.getReference("/usuarios/$uid")
 
-        firebaseMsg.setValue(user)
+        user.id = uid
+        userRef.setValue(user)
+    }
+
+    private fun crearUsuarioAuthentication(email: String, password: String){
+        authen.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener {
+                Log.d("Main", "Creado con exito el usuario")
+            }
+            .addOnFailureListener {
+                Log.d("Main", "No se pudo crear el usuario: ${it.message}")
+            }
     }
 }

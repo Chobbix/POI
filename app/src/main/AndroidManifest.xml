@@ -16,6 +16,9 @@
             android:name=".ActivityRegistro"
             android:exported="true" />
         <activity
+            android:name=".ActivityUserChats"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

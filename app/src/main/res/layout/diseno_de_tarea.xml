@@ -11,11 +11,11 @@
         android:background="@drawable/custom_msgbox"
         android:backgroundTint="#315470"
         android:orientation="vertical"
-        android:padding="15"
+        android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="4dp">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="384dp"
