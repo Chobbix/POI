@@ -42,6 +42,8 @@ class UsuariosAdapter (private val userList: List<Usuario>, private val contexto
                 Log.d("Main", "$contexto")
                 Log.d("Main", "${itemView.context}")
                 val userChatIntent = Intent(contexto, ActivityChat::class.java)
+                userChatIntent.putExtra("usernameChat", user.nombreUsuario)
+                userChatIntent.putExtra("keyChat", user.id)
                 itemView.context.startActivity(userChatIntent)
             }
         }
