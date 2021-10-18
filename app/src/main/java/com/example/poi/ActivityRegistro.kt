@@ -39,8 +39,9 @@ class ActivityRegistro : AppCompatActivity() {
             crearUsuarioDatabase(newUsuario)
 
             //val chatIntent = Intent(this, ActivityChat::class.java)
-            val chatIntent = Intent(this, ActivityChatGrupal::class.java)
-            startActivity(chatIntent)
+            //val chatIntent = Intent(this, ActivityChatGrupal::class.java)
+            val UserListIntent = Intent(this, ActivityUserChats::class.java)
+            startActivity(UserListIntent)
         }
     }
 

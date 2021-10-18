@@ -44,9 +44,10 @@ class MainActivity : AppCompatActivity() {
                 }
 
             //val chatIntent = Intent(this, ActivityChat::class.java)
-            val chatIntent = Intent(this, ActivityChatGrupal::class.java)
-            chatIntent.putExtra("username", txtEmail)
-            startActivity(chatIntent)
+            //val chatIntent = Intent(this, ActivityChatGrupal::class.java)
+            val userListIntent = Intent(this, ActivityUserChats::class.java)
+            userListIntent.putExtra("username", txtEmail)
+            startActivity(userListIntent)
         }
 
         btnRegistrar.setOnClickListener {

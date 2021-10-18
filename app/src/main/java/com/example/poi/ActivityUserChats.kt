@@ -17,6 +17,7 @@ class ActivityUserChats : AppCompatActivity() {
     private lateinit var rvUsers: RecyclerView
     private lateinit var username: String
     private val database = FirebaseDatabase.getInstance()
+    //private val userChatIntent = Intent(this, ActivityChat::class.java)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +25,8 @@ class ActivityUserChats : AppCompatActivity() {
 
         rvUsers = findViewById(R.id.rv_usuarios)
 
-        userAdapter = UsuariosAdapter(userList)
+
+        userAdapter = UsuariosAdapter(userList, this)
         rvUsers.adapter = userAdapter
 
         fetchUsers()
