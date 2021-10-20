@@ -83,7 +83,7 @@
         app:layout_constraintBottom_toTopOf="@+id/edit_IniEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@mipmap/bobesponja"
+        app:srcCompat="@mipmap/logo"
         tools:srcCompat="@mipmap/logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

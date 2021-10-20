@@ -22,6 +22,9 @@
             android:name=".ActivityUserChats"
             android:exported="true" />
         <activity
+            android:name=".ActivityMenuChats"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

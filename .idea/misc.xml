@@ -8,6 +8,7 @@
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/drawable/custom_input_button_back.xml" value="1.8535714285714286" />
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/drawable/custom_input_button_border.xml" value="0.2703125" />
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/drawable/custom_input_text.xml" value="0.2703125" />
+        <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/drawable/custom_menu.xml" value="0.2703125" />
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/drawable/custom_msgbox.xml" value="0.2703125" />
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/drawable/ic_baseline_send_24.xml" value="0.2703125" />
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/drawable/ic_email.xml" value="0.2703125" />
@@ -17,6 +18,7 @@
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/activity_chat.xml" value="0.38284839203675347" />
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/activity_lista_mensajes.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/activity_menu_chats.xml" value="0.264" />
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/activity_muro.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/activity_nuevo_mensaje.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/2RJ25LA_RS5/AndroidStudioProjects/POI/app/src/main/res/layout/activity_registro.xml" value="0.4" />
