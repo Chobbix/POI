@@ -8,9 +8,11 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.poi.adaptadores.ChatAdaptador
 import com.example.poi.modelos.Mensaje
+import com.example.poi.modelos.Usuario
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
@@ -19,7 +21,7 @@ class ActivityChat : AppCompatActivity() {
     private val messageList = mutableListOf<Mensaje>()
     private lateinit var chatAdapter: ChatAdaptador
     private lateinit var rvChats: RecyclerView
-    private lateinit var username: String
+    private var username: String = ""
     private lateinit var usernameChat: String
     private lateinit var chatKey: String
     private val database = FirebaseDatabase.getInstance()
@@ -34,18 +36,18 @@ class ActivityChat : AppCompatActivity() {
         chatAdapter = ChatAdaptador(messageList)
         rvChats.adapter = chatAdapter
 
-        username = intent.getStringExtra("username") ?: "Sin nombre"
         usernameChat = intent.getStringExtra("usernameChat") ?: "Sin nombre"
         chatKey = intent.getStringExtra("keyChat") ?: "Sin nombre"
 
-        Log.d("Main", "$username")
+        val fromId = authen.uid ?: ""
+        getUsername(fromId)
+
         Log.d("Main", "$usernameChat")
         Log.d("Main", "$chatKey")
 
         findViewById<Button>(R.id.btn_Enviar).setOnClickListener {
             val message = findViewById<EditText>(R.id.edit_EnviarMsg).text.toString()
             if (message.isNotEmpty()) {
-                val fromId = authen.uid ?: ""
                 val toId = chatKey
                 val msg = Mensaje("", message, username, ServerValue.TIMESTAMP, fromId, toId)
                 sendMessage(msg)
@@ -84,6 +86,20 @@ class ActivityChat : AppCompatActivity() {
                     chatAdapter.notifyDataSetChanged()
                     rvChats.smoothScrollToPosition(messageList.size - 1)
                 }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+        })
+    }
+
+    public fun getUsername(id : String){
+        val ref = database.getReference("/usuarios/$id")
+        ref.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                    val currentUser: Usuario = snapshot.getValue(Usuario::class.java) as Usuario
+                    username = currentUser.nombreUsuario
             }
 
             override fun onCancelled(error: DatabaseError) {

@@ -23,7 +23,7 @@ class ActivityMenuChats : AppCompatActivity() {
         }
 
         btnChatGrupal.setOnClickListener {
-            changeFragments(fragmentChatGrupal(), "fragment_chatgrupal")
+            changeFragments(fragmentChatGrupal(this), "fragment_chatgrupal")
             btnChatGrupal.textSize = 15.0F
             btnChatPriv.textSize = 12.0F
         }
