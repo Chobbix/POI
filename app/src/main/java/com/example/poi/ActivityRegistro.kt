@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import com.example.poi.modelos.Usuario
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -35,28 +36,28 @@ class ActivityRegistro : AppCompatActivity() {
 
             val newUsuario = Usuario("", txtNombre, txtUsuario, txtTel, txtEmail, txtContra)
 
-            crearUsuarioAuthentication(newUsuario.email, newUsuario.contrasenia)
-            crearUsuarioDatabase(newUsuario)
+            crearUsuarioAuthentication(newUsuario.email, newUsuario.contrasenia, newUsuario)
 
             //val chatIntent = Intent(this, ActivityChat::class.java)
             //val chatIntent = Intent(this, ActivityChatGrupal::class.java)
-            val UserListIntent = Intent(this, ActivityUserChats::class.java)
-            startActivity(UserListIntent)
         }
     }
 
-    private fun crearUsuarioDatabase(user: Usuario){
-        val uid = authen.uid ?: ""
-        val userRef = database.getReference("/usuarios/$uid")
 
-        user.id = uid
-        userRef.setValue(user)
-    }
-
-    private fun crearUsuarioAuthentication(email: String, password: String){
+    private fun crearUsuarioAuthentication(email: String, password: String, newUsuario: Usuario){
         authen.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener {
-                Log.d("Main", "Creado con exito el usuario")
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val uid = authen.currentUser?.uid!!
+                    val userRef = database.getReference("/usuarios").child(uid)
+                    newUsuario.id = uid
+                    userRef.setValue(newUsuario)
+
+                    val UserListIntent = Intent(this, ActivityMenuChats::class.java)
+                    startActivity(UserListIntent)
+                } else {
+                    Toast.makeText(this, "Ha ocurrido un error.", Toast.LENGTH_SHORT).show()
+                }
             }
             .addOnFailureListener {
                 Log.d("Main", "No se pudo crear el usuario: ${it.message}")

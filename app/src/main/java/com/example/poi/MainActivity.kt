@@ -36,8 +36,14 @@ class MainActivity : AppCompatActivity() {
             val txtPass = editPass.text.toString()
 
             authen.signInWithEmailAndPassword(txtEmail, txtPass)
-                .addOnCompleteListener {
-                    Log.d("Main", "Usuario encontrado ${it.result}")
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        val userListIntent = Intent(this, ActivityMenuChats::class.java)
+                        userListIntent.putExtra("username", txtEmail)
+                        startActivity(userListIntent)
+                    } else {
+                        Toast.makeText(this, "Ha ocurrido un error.", Toast.LENGTH_SHORT).show()
+                    }
                 }
                 .addOnFailureListener {
                     Log.d("Main", "No se pudo encontrar el usuario: ${it.message}")
@@ -45,9 +51,6 @@ class MainActivity : AppCompatActivity() {
 
             //val chatIntent = Intent(this, ActivityChat::class.java)
             //val chatIntent = Intent(this, ActivityChatGrupal::class.java)
-            val userListIntent = Intent(this, ActivityMenuChats::class.java)
-            userListIntent.putExtra("username", txtEmail)
-            startActivity(userListIntent)
         }
 
         btnRegistrar.setOnClickListener {

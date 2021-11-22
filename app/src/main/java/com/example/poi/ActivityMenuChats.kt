@@ -32,7 +32,7 @@ class ActivityMenuChats : AppCompatActivity() {
         val tvPerfil = findViewById<TextView>(R.id.tv_Username)
         val switchActivo = findViewById<Switch>(R.id.switchActivo)
 
-        val fromId = authen.uid ?: ""
+        val fromId = authen.currentUser?.uid!!
         getUser(fromId, tvPerfil, switchActivo)
 
         btnChatPriv.setOnClickListener {
