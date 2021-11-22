@@ -11,6 +11,8 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.poi.adaptadores.ChatAdaptador
+import com.example.poi.encriptado.Encriptado_Mensajes
+import com.example.poi.estaticos.StaticUser
 import com.example.poi.modelos.Mensaje
 import com.example.poi.modelos.Usuario
 import com.google.firebase.auth.FirebaseAuth
@@ -48,8 +50,18 @@ class ActivityChat : AppCompatActivity() {
         findViewById<Button>(R.id.btn_Enviar).setOnClickListener {
             val message = findViewById<EditText>(R.id.edit_EnviarMsg).text.toString()
             if (message.isNotEmpty()) {
+
+                var encriptacion = "";
+                var isMsgEncripted = false
+                if(StaticUser.staticUser.isEncripted) {
+                    isMsgEncripted = true
+                    encriptacion = Encriptado_Mensajes.encrypt(message)!!
+                } else {
+                    encriptacion = message
+                }
+
                 val toId = chatKey
-                val msg = Mensaje("", message, username, ServerValue.TIMESTAMP, fromId, toId)
+                val msg = Mensaje("", encriptacion, username, ServerValue.TIMESTAMP, fromId, toId, isMsgEncripted)
                 sendMessage(msg)
             }
             val editMsg = findViewById<EditText>(R.id.edit_EnviarMsg)

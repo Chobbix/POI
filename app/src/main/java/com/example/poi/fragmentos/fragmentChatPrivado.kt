@@ -1,5 +1,6 @@
 package com.example.poi.fragmentos
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.view.View
@@ -35,6 +36,7 @@ class fragmentChatPrivado (contexto : Context) : Fragment(R.layout.activity_list
     private fun fetchUsers() {
         val ref = database.getReference("/usuarios")
         ref.addListenerForSingleValueEvent(object : ValueEventListener {
+            @SuppressLint("NotifyDataSetChanged")
             override fun onDataChange(snapshot: DataSnapshot) {
                 userList.clear()
 
@@ -45,7 +47,6 @@ class fragmentChatPrivado (contexto : Context) : Fragment(R.layout.activity_list
 
                 if(userList.size > 0) {
                     userAdapter.notifyDataSetChanged()
-                    rvUsers.smoothScrollToPosition(userList.size - 1)
                 }
             }
 
