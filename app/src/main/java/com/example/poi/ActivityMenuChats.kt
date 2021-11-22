@@ -3,18 +3,36 @@ package com.example.poi
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.poi.estaticos.StaticUser
 import com.example.poi.fragmentos.fragmentChatGrupal
 import com.example.poi.fragmentos.fragmentChatPrivado
+import com.example.poi.modelos.Usuario
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class ActivityMenuChats : AppCompatActivity() {
+
+    private val database = FirebaseDatabase.getInstance()
+    private val authen = FirebaseAuth.getInstance()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu_chats)
 
         val btnChatPriv = findViewById<Button>(R.id.btnChatPrivMenu)
         val btnChatGrupal = findViewById<Button>(R.id.btnChatGrupMenu)
+        val tvPerfil = findViewById<TextView>(R.id.tv_Username)
+
+        val fromId = authen.uid ?: ""
+        getUsername(fromId)
+
+//        tvPerfil.text = StaticUser.staticUser.nombreUsuario
 
         btnChatPriv.setOnClickListener {
             changeFragments(fragmentChatPrivado(this), "fragment_chatpriv")
@@ -23,9 +41,14 @@ class ActivityMenuChats : AppCompatActivity() {
         }
 
         btnChatGrupal.setOnClickListener {
+            tvPerfil.text = StaticUser.staticUser.nombreUsuario
             changeFragments(fragmentChatGrupal(this), "fragment_chatgrupal")
             btnChatGrupal.textSize = 15.0F
             btnChatPriv.textSize = 12.0F
+        }
+
+        tvPerfil.setOnClickListener {
+            tvPerfil.text = StaticUser.staticUser.nombreUsuario
         }
 
         changeFragments(fragmentChatPrivado(this), "fragment_chatpriv")
@@ -36,5 +59,19 @@ class ActivityMenuChats : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.flMenu, newFragment, etiqueta)
             .commit()
+    }
+
+    public fun getUsername(id : String){
+        val ref = database.getReference("/usuarios/$id")
+        ref.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val currentUser: Usuario = snapshot.getValue(Usuario::class.java) as Usuario
+                StaticUser.createGlobalUser(currentUser)
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+        })
     }
 }
