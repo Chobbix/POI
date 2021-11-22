@@ -9,6 +9,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.poi.R
+import com.example.poi.encriptado.Encriptado_Mensajes
 import com.example.poi.modelos.Mensaje
 import com.google.firebase.auth.FirebaseAuth
 import java.text.SimpleDateFormat
@@ -29,6 +30,9 @@ class ChatAdaptador(private val messageList: List<Mensaje>):
 
     class ViewHolder(private val itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(message: Mensaje) {
+
+            if(message.isEncripted)
+                message.content = Encriptado_Mensajes.decrypt(message.content)!!
 
             itemView.findViewById<TextView>(R.id.tv_NombreMsg).text = message.name
             itemView.findViewById<TextView>(R.id.tv_Username).text = message.content
