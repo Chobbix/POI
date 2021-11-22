@@ -7,5 +7,7 @@ data class Mensaje(
     val date: Any? = null,
     val fromid: String= "",
     val toid: String= "",
-    var isEncripted: Boolean= false
+    var isEncripted: Boolean= false,
+    var isImage: Boolean= false,
+    var urlFile: String= ""
 )
