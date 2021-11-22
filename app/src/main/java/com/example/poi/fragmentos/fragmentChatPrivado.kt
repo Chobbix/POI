@@ -35,7 +35,7 @@ class fragmentChatPrivado (contexto : Context) : Fragment(R.layout.activity_list
 
     private fun fetchUsers() {
         val ref = database.getReference("/usuarios")
-        ref.addListenerForSingleValueEvent(object : ValueEventListener {
+        ref.addValueEventListener(object : ValueEventListener {
             @SuppressLint("NotifyDataSetChanged")
             override fun onDataChange(snapshot: DataSnapshot) {
                 userList.clear()

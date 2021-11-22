@@ -36,7 +36,7 @@ class fragmentChatGrupal (contexto : Context) : Fragment(R.layout.activity_lista
 
     private fun fetchLicenciaturas() {
         val ref = database.getReference("/licenciaturas")
-        ref.addListenerForSingleValueEvent(object : ValueEventListener {
+        ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 licenciaturaList.clear()
 
