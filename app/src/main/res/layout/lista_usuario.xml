@@ -18,12 +18,21 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/tv_Username2"
+            android:layout_width="314dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            tools:text="Username" />
+
+        <TextView
             android:id="@+id/tv_Username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            tools:text="Username" />
+            tools:text="On" />
 
     </LinearLayout>
 </FrameLayout>

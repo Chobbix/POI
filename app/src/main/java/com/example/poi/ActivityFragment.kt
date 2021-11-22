@@ -22,7 +22,7 @@ class ActivityFragment : AppCompatActivity(){
            cambiarfragmentos(fragmentchat(),"fragmentochat")
         }
         btn_grupo.setOnClickListener{
-            cambiarfragmentos(fragmentGrupos(),"fragmentochat")
+            cambiarfragmentos(fragmentGrupos(),"fragmentoGrupo")
         }
         btn_tarea.setOnClickListener{
             cambiarfragmentos(fragmentTarea(),"fragmentoTarea")
