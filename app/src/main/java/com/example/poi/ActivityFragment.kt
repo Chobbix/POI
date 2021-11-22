@@ -25,7 +25,7 @@ class ActivityFragment : AppCompatActivity(){
             cambiarfragmentos(fragmentGrupos(),"fragmentoGrupo")
         }
         btn_tarea.setOnClickListener{
-            cambiarfragmentos(fragmentTarea(),"fragmentoTarea")
+            cambiarfragmentos(fragmentTarea(this),"fragmentoTarea")
         }
     }
     private fun  cambiarfragmentos(fragmentoNuevo: Fragment, etiqueta:String){
