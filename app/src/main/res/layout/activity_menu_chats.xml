@@ -32,7 +32,7 @@
             android:orientation="horizontal">
 
             <Switch
-                android:id="@+id/switch2"
+                android:id="@+id/switchActivo"
                 android:layout_width="208dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="14dp"

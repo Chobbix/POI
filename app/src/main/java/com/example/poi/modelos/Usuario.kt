@@ -9,5 +9,6 @@ data class Usuario (
     var telefono: String = "",
     var email: String = "",
     var contrasenia: String = "",
-    var isEncripted: Boolean = false
+    var isEncripted: Boolean = false,
+    var isActivo: Boolean = true
 )

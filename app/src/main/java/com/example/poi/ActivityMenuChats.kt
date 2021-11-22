@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.widget.Button
+import android.widget.Switch
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -29,9 +30,10 @@ class ActivityMenuChats : AppCompatActivity() {
         val btnChatPriv = findViewById<Button>(R.id.btnChatPrivMenu)
         val btnChatGrupal = findViewById<Button>(R.id.btnChatGrupMenu)
         val tvPerfil = findViewById<TextView>(R.id.tv_Username)
+        val switchActivo = findViewById<Switch>(R.id.switchActivo)
 
         val fromId = authen.uid ?: ""
-        getUser(fromId, tvPerfil)
+        getUser(fromId, tvPerfil, switchActivo)
 
         btnChatPriv.setOnClickListener {
             changeFragments(fragmentChatPrivado(this), "fragment_chatpriv")
@@ -50,6 +52,21 @@ class ActivityMenuChats : AppCompatActivity() {
             startActivity(perfilIntent)
         }
 
+        switchActivo.setOnClickListener {
+            if(switchActivo.isChecked) {
+                switchActivo.text = "On"
+                StaticUser.staticUser.isActivo = true
+                val reference = database.getReference("/usuarios/${StaticUser.staticUser.id}")
+                reference.setValue(StaticUser.staticUser)
+            } else {
+                switchActivo.text = "Off"
+                StaticUser.staticUser.isActivo = false
+                val reference = database.getReference("/usuarios/${StaticUser.staticUser.id}")
+                reference.setValue(StaticUser.staticUser)
+            }
+        }
+
+
         changeFragments(fragmentChatPrivado(this), "fragment_chatpriv")
         btnChatPriv.textSize = 15.0F
     }
@@ -60,13 +77,14 @@ class ActivityMenuChats : AppCompatActivity() {
             .commit()
     }
 
-    public fun getUser(id : String, tvUsername: TextView){
+    public fun getUser(id : String, tvUsername: TextView, switchActivo: Switch){
         val ref = database.getReference("/usuarios/$id")
         ref.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val currentUser: Usuario = snapshot.getValue(Usuario::class.java) as Usuario
                 StaticUser.createGlobalUser(currentUser)
                 tvUsername.text = StaticUser.staticUser.nombreUsuario
+                switchActivo.isChecked = StaticUser.staticUser.isActivo
             }
 
             override fun onCancelled(error: DatabaseError) {

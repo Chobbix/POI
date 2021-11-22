@@ -35,7 +35,11 @@ class UsuariosAdapter (private val userList: List<Usuario>, private val contexto
     class ViewHolder(private val itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(user: Usuario, contexto: Context) {
             val txt_User = itemView.findViewById<TextView>(R.id.tv_Username)
+            val txt_Activo = itemView.findViewById<TextView>(R.id.tv_Activo)
             txt_User.text = user.nombreUsuario
+
+            if(user.isActivo) txt_Activo.text = "On"
+            else txt_Activo.text = "Off"
 
             itemView.setOnClickListener {
                 Log.d("Main", "${user.nombreUsuario}")

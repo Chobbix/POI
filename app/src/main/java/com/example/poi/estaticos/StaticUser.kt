@@ -9,13 +9,7 @@ class StaticUser() :Application() {
 
         fun createGlobalUser(newUser: Usuario) {
             staticUser = Usuario()
-            staticUser.id = newUser.id
-            staticUser.nombreCompleto = newUser.nombreCompleto
-            staticUser.nombreUsuario = newUser.nombreUsuario
-            staticUser.telefono = newUser.telefono
-            staticUser.email = newUser.email
-            staticUser.contrasenia = newUser.contrasenia
-            staticUser.isEncripted = newUser.isEncripted
+            staticUser = newUser
         }
     }
 }

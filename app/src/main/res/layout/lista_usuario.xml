@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/tv_Username2"
+            android:id="@+id/tv_Username"
             android:layout_width="314dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -27,7 +27,7 @@
             tools:text="Username" />
 
         <TextView
-            android:id="@+id/tv_Username"
+            android:id="@+id/tv_Activo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
