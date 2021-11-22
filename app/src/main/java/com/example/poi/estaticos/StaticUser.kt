@@ -15,6 +15,7 @@ class StaticUser() :Application() {
             staticUser.telefono = newUser.telefono
             staticUser.email = newUser.email
             staticUser.contrasenia = newUser.contrasenia
+            staticUser.isEncripted = newUser.isEncripted
         }
     }
 }

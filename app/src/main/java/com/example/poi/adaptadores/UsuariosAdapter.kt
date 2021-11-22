@@ -37,7 +37,7 @@ class UsuariosAdapter (private val userList: List<Usuario>, private val contexto
             val txt_User = itemView.findViewById<TextView>(R.id.tv_Username)
             txt_User.text = user.nombreUsuario
 
-            txt_User.setOnClickListener {
+            itemView.setOnClickListener {
                 Log.d("Main", "${user.nombreUsuario}")
                 Log.d("Main", "$contexto")
                 Log.d("Main", "${itemView.context}")

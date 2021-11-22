@@ -6,5 +6,6 @@ data class Mensaje(
     var name: String = "",
     val date: Any? = null,
     val fromid: String= "",
-    val toid: String= ""
+    val toid: String= "",
+    var isEncripted: Boolean= false
 )

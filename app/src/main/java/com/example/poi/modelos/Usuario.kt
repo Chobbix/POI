@@ -8,5 +8,6 @@ data class Usuario (
     var nombreUsuario: String = "",
     var telefono: String = "",
     var email: String = "",
-    var contrasenia: String = ""
+    var contrasenia: String = "",
+    var isEncripted: Boolean = false
 )

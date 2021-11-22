@@ -1,5 +1,6 @@
 package com.example.poi
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.widget.Button
@@ -30,9 +31,7 @@ class ActivityMenuChats : AppCompatActivity() {
         val tvPerfil = findViewById<TextView>(R.id.tv_Username)
 
         val fromId = authen.uid ?: ""
-        getUsername(fromId)
-
-//        tvPerfil.text = StaticUser.staticUser.nombreUsuario
+        getUser(fromId, tvPerfil)
 
         btnChatPriv.setOnClickListener {
             changeFragments(fragmentChatPrivado(this), "fragment_chatpriv")
@@ -41,14 +40,14 @@ class ActivityMenuChats : AppCompatActivity() {
         }
 
         btnChatGrupal.setOnClickListener {
-            tvPerfil.text = StaticUser.staticUser.nombreUsuario
             changeFragments(fragmentChatGrupal(this), "fragment_chatgrupal")
             btnChatGrupal.textSize = 15.0F
             btnChatPriv.textSize = 12.0F
         }
 
         tvPerfil.setOnClickListener {
-            tvPerfil.text = StaticUser.staticUser.nombreUsuario
+            val perfilIntent = Intent(this, ActivityPerfil::class.java)
+            startActivity(perfilIntent)
         }
 
         changeFragments(fragmentChatPrivado(this), "fragment_chatpriv")
@@ -61,12 +60,13 @@ class ActivityMenuChats : AppCompatActivity() {
             .commit()
     }
 
-    public fun getUsername(id : String){
+    public fun getUser(id : String, tvUsername: TextView){
         val ref = database.getReference("/usuarios/$id")
         ref.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val currentUser: Usuario = snapshot.getValue(Usuario::class.java) as Usuario
                 StaticUser.createGlobalUser(currentUser)
+                tvUsername.text = StaticUser.staticUser.nombreUsuario
             }
 
             override fun onCancelled(error: DatabaseError) {

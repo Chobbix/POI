@@ -2,6 +2,9 @@ package com.example.poi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Switch
+import android.widget.TextView
+import android.widget.Toast
 import com.example.poi.estaticos.StaticUser
 import com.example.poi.modelos.Usuario
 import com.google.firebase.auth.FirebaseAuth
@@ -19,7 +22,21 @@ class ActivityPerfil : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_perfil)
 
-        val fromId = authen.uid ?: ""
+        val switchEncriptado = findViewById<Switch>(R.id.switch1)
 
+        switchEncriptado.isChecked = StaticUser.staticUser.isEncripted
+
+        switchEncriptado.setOnClickListener {
+            if(switchEncriptado.isChecked) {
+                StaticUser.staticUser.isEncripted = true
+                val reference = database.getReference("/usuarios/${StaticUser.staticUser.id}")
+                reference.setValue(StaticUser.staticUser)
+            }
+            else {
+                StaticUser.staticUser.isEncripted = false
+                val reference = database.getReference("/usuarios/${StaticUser.staticUser.id}")
+                reference.setValue(StaticUser.staticUser)
+            }
+        }
     }
 }
