@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.poi.adaptadores.ChatAdaptador
@@ -17,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
 class ActivityChat : AppCompatActivity() {
+
 
     private val messageList = mutableListOf<Mensaje>()
     private lateinit var chatAdapter: ChatAdaptador
@@ -32,7 +34,6 @@ class ActivityChat : AppCompatActivity() {
         setContentView(R.layout.activity_chat)
 
         rvChats = findViewById(R.id.rvMsgRecibidos)
-
         chatAdapter = ChatAdaptador(messageList)
         rvChats.adapter = chatAdapter
 
@@ -56,6 +57,10 @@ class ActivityChat : AppCompatActivity() {
             editMsg.setText("")
         }
         readMessage()
+
+
+
+
     }
 
     private fun sendMessage(message: Mensaje) {

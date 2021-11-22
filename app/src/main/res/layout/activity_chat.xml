@@ -7,19 +7,29 @@
     android:background="@color/fondo_cel"
     tools:context=".ActivityChat">
 
+    <Button
+        android:id="@+id/btn_sendphoto"
+        android:layout_width="55dp"
+        android:layout_height="51dp"
+        android:background="@drawable/ic_picture"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/edit_EnviarMsg"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <EditText
         android:id="@+id/edit_EnviarMsg"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_width="272dp"
+        android:layout_height="49dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="64dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="4dp"
         android:background="@drawable/custom_input_text"
         android:ems="10"
         android:hint="Enviar Mensaje"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.91"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -28,10 +38,11 @@
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="4dp"
         android:background="@drawable/ic_enviar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/edit_EnviarMsg" />
 
     <androidx.recyclerview.widget.RecyclerView
