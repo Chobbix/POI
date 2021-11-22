@@ -8,10 +8,7 @@ import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
@@ -77,6 +74,8 @@ class ActivityChat : AppCompatActivity() {
             }
             alert.show()
         }
+
+        findViewById<TextView>(R.id.tvUsernameChat).text = usernameChat
 
         findViewById<Button>(R.id.btn_Enviar).setOnClickListener {
             val message = findViewById<EditText>(R.id.edit_EnviarMsg).text.toString()
